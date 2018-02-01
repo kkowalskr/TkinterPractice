@@ -39,7 +39,7 @@ def main():
     say_hello_button.grid()
 
     # ------------------------------------------------------------------
-    # TODO: 6. After reading and understanding the m4e module,
+    # DONE: 6. After reading and understanding the m4e module,
     #   -- Put an Entry box on the Frame.
     #   -- Put a second Button on the Frame.
     #   -- Make this new Button, when pressed, print "Hello"
@@ -69,6 +69,14 @@ def main():
     #    that is a "user error" -- do NOT deal with that.
     #
     # ------------------------------------------------------------------
+    my_entry_box2 = ttk.Entry(frame1)
+    my_entry_box2.grid(row=1, column=2)
+
+    reprint_button = ttk.Button(frame1, text='number to reprint')
+    reprint_button['command'] = lambda: reprint(my_entry_box2, my_entry_box)
+    reprint_button.grid(row=2, column=2)
+
+
     ####################################################################
     # HINT:
     #   You will need to obtain the INTEGER from the STRING
@@ -96,6 +104,16 @@ def ok_test(entry_box):
         print('Hello')
     else:
         print('Goodbye')
+
+
+def reprint(n, entry_box):
+
+    contents = entry_box.get()
+    number = int(n.get())
+
+    for k in range(number):
+        print(contents)
+
 
 
 
